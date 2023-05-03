@@ -1,0 +1,99 @@
+/* backface-visibility declared as "hidden" is to prevent text animation from shaking to top side */
+/* block elements occupy the entire width of the element and line breaks after and before them */
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  /* ease in - animation will start slower and accelerate over time */
+  /* inline is default */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
+    /* animation-direction: alternate-reverse; */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 2s; */
+  }
+
+  /* with ctrl + D we can select multiple instances of the same word */
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation: moveInFromRight 1s ease-out;
+    /* animation-name: moveInFromRight;
+          animation-duration: 1s;
+          animation-timing-function: ease-out; */
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+body {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* default size */
+  /* font-size: 16px; */
+  /* default size */
+  font-weight: 400;
+  /* higher than default of 1 */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  box-sizing: border-box;
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, $color-primary, $color-tertiary);
+  display: inline-block;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.2rem;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    //horizontal / vertical / blur / color (color, opacity)
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

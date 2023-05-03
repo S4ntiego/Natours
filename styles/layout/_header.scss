@@ -1,0 +1,42 @@
+.header {
+  background-image: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.799),
+      rgba(40, 180, 133, 0.797)
+    ),
+    url(/hero-small.jpg);
+  height: 110vh;
+  background-size: cover;
+  background-position: top;
+
+  position: relative;
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    (min-width: 125em) {
+    background-image: linear-gradient(
+        to right,
+        rgba(126, 213, 111, 0.799),
+        rgba(40, 180, 133, 0.797)
+      ),
+      url(/hero.jpg);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* 50% are in relation not to the parent element, but to the element itself, so its moving by 50% of the element width and height */
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+  }
+}
